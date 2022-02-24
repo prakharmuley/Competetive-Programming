@@ -1,0 +1,73 @@
+Problem Link: https://www.codechef.com/problems/STR_REVERSE
+
+
+
+import java.util.*;
+import java.io.*;
+import java.text.DecimalFormat;
+
+public class Main {
+	
+	  static class InputReader {
+		public BufferedReader reader;
+		public StringTokenizer tokenizer;
+		public InputReader(InputStream stream) {
+			reader = new BufferedReader(new InputStreamReader(stream), 32768);
+			tokenizer = null;
+		}
+		public String nextLine() {
+			return null;
+		}
+		public String next() {
+			while (tokenizer == null || !tokenizer.hasMoreTokens()) {
+				try {
+					tokenizer = new StringTokenizer(reader.readLine());
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+				}
+			}
+			return tokenizer.nextToken();
+		}
+		public int nextInt() {
+			return Integer.parseInt(next());
+		}
+		public long nextLong() {
+			return Long.parseLong(next());
+		}
+	}
+
+	public static void solve(InputReader sc, PrintWriter pw) {
+		  int t=sc.nextInt();
+    	for(int k=1;k<=t;k++)
+    	{	
+        String s=sc.next();
+        StringBuilder rev=new StringBuilder(s);
+        String rs=rev.reverse().toString();
+        int ans=0,i=0,j=0;
+        while(i<s.length())
+        {
+        	if(s.charAt(i)==rs.charAt(j))
+        	{
+        		i++;
+        		j++;
+        	}
+        	else
+        	{
+        		ans++;
+        		i++;
+        	}
+        }
+        pw.print(Math.min(ans, s.length()-1)+"\n");
+	   }
+	}
+
+	public static void main(String[] args) {
+		InputStream inputStream = System.in;
+		OutputStream outputStream = System.out;
+		InputReader in = new InputReader(inputStream);
+		PrintWriter out = new PrintWriter(outputStream);
+		solve(in, out);
+		out.close();
+	}	
+}
+	
