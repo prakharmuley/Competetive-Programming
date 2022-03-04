@@ -1,0 +1,121 @@
+Problem Link: https://codeforces.com/contest/1646/problem/A
+
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.Set;
+import java.util.SortedMap;
+import java.util.StringTokenizer;
+import java.util.TreeMap;
+ 
+ 
+ 
+import java.text.DecimalFormat;
+ 
+ 
+ 
+ 
+public class Main {
+ 
+	public static void main(String[] args) throws Exception {
+ 
+		InputStream inputStream = System.in;
+		OutputStream outputStream = System.out;
+		InputReader in = new InputReader(inputStream);
+		PrintWriter out = new PrintWriter(outputStream);
+		solve(in, out);
+		out.close();
+	}
+	public static boolean isSorted(int[] a) {
+		int n = a.length, i = 0;
+		for (i = 1; i < n; i++) {
+			if (a[i-1] > a[i])
+				return false;
+		}
+		if(a[n-2]>a[n-1]) return false;
+		
+		
+		return true;
+	}
+
+	public static void solve(InputReader sc, PrintWriter pw) {
+		try {
+		int t=sc.nextInt();
+    	for(int k=1;k<=t;k++)
+    	{
+    		long n=sc.nextLong();
+    		long s=sc.nextLong();
+    		long ans=s/(n*n);
+    		pw.print(ans+"\n");
+    		
+    		
+    		
+    	}
+    	
+    		
+    			
+       }
+		catch(Exception e) { return;}
+
+    		
+    				
+ 	  
+}
+ 
+ 
+	
+ 
+	
+ 
+	static class InputReader {
+		public BufferedReader reader;
+		public StringTokenizer tokenizer;
+ 
+		public InputReader(InputStream stream) {
+			reader = new BufferedReader(new InputStreamReader(stream), 32768);
+			tokenizer = null;
+		}
+ 
+		public String nextLine() {
+			return null;
+		}
+ 
+		public String next() {
+			while (tokenizer == null || !tokenizer.hasMoreTokens()) {
+				try {
+					tokenizer = new StringTokenizer(reader.readLine());
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+				}
+			}
+			return tokenizer.nextToken();
+		}
+ 
+		public int nextInt() {
+			return Integer.parseInt(next());
+		}
+ 
+		public long nextLong() {
+			return Long.parseLong(next());
+		}
+
+}
+}
