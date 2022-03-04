@@ -1,0 +1,117 @@
+Problem Link: https://www.codechef.com/LTIME105B/problems/PLPROCESS
+
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.Set;
+import java.util.SortedMap;
+import java.util.StringTokenizer;
+import java.util.TreeMap;
+ 
+ 
+ 
+import java.text.DecimalFormat;
+ 
+ 
+ 
+ 
+public class Main {
+ 
+	public static void main(String[] args) {
+ 
+		InputStream inputStream = System.in;
+		OutputStream outputStream = System.out;
+		InputReader in = new InputReader(inputStream);
+		PrintWriter out = new PrintWriter(outputStream);
+		solve(in, out);
+		out.close();
+	}
+
+	public static void solve(InputReader sc, PrintWriter pw) {
+		int t=sc.nextInt();
+    	for(int k=1;k<=t;k++)
+    	{
+    		int n=sc.nextInt();
+    		
+    		int a[]=new int[n];
+    		long sum=0;
+    		
+    		for(int i=0;i<n;i++)
+    		{
+    			a[i]=sc.nextInt();
+    			sum+=(long)a[i];
+    				
+    		}
+    		  long ans = sum;
+    	        long curr = 0;
+    	        for(int i = 0; i<n; i++){
+    	            curr += a[i];
+    	            ans = Math.min(ans, Math.max(curr, sum-curr));
+    	        }
+    		pw.print(ans+"\n");
+    		
+    			
+       }
+
+    		
+    				
+ 	  
+}
+ 
+ 
+	
+ 
+	
+ 
+	static class InputReader {
+		public BufferedReader reader;
+		public StringTokenizer tokenizer;
+ 
+		public InputReader(InputStream stream) {
+			reader = new BufferedReader(new InputStreamReader(stream), 32768);
+			tokenizer = null;
+		}
+ 
+		public String nextLine() {
+			return null;
+		}
+ 
+		public String next() {
+			while (tokenizer == null || !tokenizer.hasMoreTokens()) {
+				try {
+					tokenizer = new StringTokenizer(reader.readLine());
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+				}
+			}
+			return tokenizer.nextToken();
+		}
+ 
+		public int nextInt() {
+			return Integer.parseInt(next());
+		}
+ 
+		public long nextLong() {
+			return Long.parseLong(next());
+		}
+
+}
+}
