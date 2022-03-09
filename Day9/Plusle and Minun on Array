@@ -1,0 +1,179 @@
+Problem Link: https://www.codechef.com/START29B/problems/PMA/
+
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.Set;
+import java.util.SortedMap;
+import java.util.StringTokenizer;
+import java.util.TreeMap;
+ 
+ 
+ 
+import java.text.DecimalFormat;
+ 
+ 
+ 
+ 
+public class Main {
+ 
+	public static void main(String[] args) throws Exception {
+ 
+		InputStream inputStream = System.in;
+		OutputStream outputStream = System.out;
+		InputReader in = new InputReader(inputStream);
+		PrintWriter out = new PrintWriter(outputStream);
+		solve(in, out);
+		out.close();
+	}
+	public static boolean isSorted(int[] a) {
+		int n = a.length, i = 0;
+		for (i = 1; i < n; i++) {
+			if (a[i-1] > a[i])
+				return false;
+		}
+		if(a[n-2]>a[n-1]) return false;
+		
+		
+		return true;
+	}
+	static class Pair{
+		int val;
+		int idx;
+		public Pair(int val, int idx)
+		{
+			this.val=val;
+			this.idx=idx;
+		}
+	}
+	public static void solve(InputReader sc, PrintWriter pw) {
+		try {
+		int t=sc.nextInt();
+    	for(int K=1;K<=t;K++)
+    	{
+    		int n=sc.nextInt();
+    		int a[]=new int[n];
+    		long mn=Long.MAX_VALUE;
+    		long mx=Long.MIN_VALUE;
+    		int mni=-1;
+    		int mxi=-1;
+    		List<Integer> hmn=new ArrayList<>();
+    		List<Integer> hmx=new ArrayList<>();
+    		long sum=0;
+    		Pair[] pe=new Pair[n];
+    		Pair[] po=new Pair[n];
+    		for(int i=0;i<n;i++)
+    		{
+    			a[i]=sc.nextInt();
+    			if(i%2==0) {
+    			sum+=(long)Math.abs(a[i]);
+    			pe[i]=new Pair(Math.abs(a[i]),i);
+    			}
+    			else
+    			{
+    				sum-=(long)Math.abs(a[i]);
+    				po[i]=new Pair(Math.abs(a[i]),i);
+    			}
+    			if((long)Math.abs(a[i])>mx) 
+    			{
+    				mx=(long)Math.abs(a[i]);
+    					
+    			}
+    			if((long)Math.abs(a[i])<mn)
+    			{
+    				mn=(long)Math.abs(a[i]);
+    				
+    			}
+    			
+    		}
+    		sum=0;
+    		 sum = 0;
+    	    long maxi = Integer.MAX_VALUE, mini = Integer.MIN_VALUE;
+    	    for (int i = 0; i < n; i++)
+    	    {
+    	        int x=a[i];
+    	        if ((i % 2==0)){
+    	            sum += Math.abs(x);
+    	            maxi = Math.min(maxi, Math.abs(x));
+    	        }
+    	        else{
+    	            sum -= Math.abs(x);
+    	            mini = Math.max(mini, Math.abs(x));
+    	        }
+    	    }
+
+    	    pw.print(Math.max(sum, sum + ((long)2 * mini) - ((long)2 * maxi))+"\n");
+    		 
+    	    
+    	   
+    	}
+    		
+    	}
+    	
+    		
+    			
+       
+		catch(Exception e) { return;}
+
+    		
+    				
+ 	  
+}
+ 
+ 
+	
+ 
+	
+ 
+	static class InputReader {
+		public BufferedReader reader;
+		public StringTokenizer tokenizer;
+ 
+		public InputReader(InputStream stream) {
+			reader = new BufferedReader(new InputStreamReader(stream), 32768);
+			tokenizer = null;
+		}
+ 
+		public String nextLine() {
+			return null;
+		}
+ 
+		public String next() {
+			while (tokenizer == null || !tokenizer.hasMoreTokens()) {
+				try {
+					tokenizer = new StringTokenizer(reader.readLine());
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+				}
+			}
+			return tokenizer.nextToken();
+		}
+ 
+		public int nextInt() {
+			return Integer.parseInt(next());
+		}
+ 
+		public long nextLong() {
+			return Long.parseLong(next());
+		}
+
+}
+}
